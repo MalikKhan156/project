@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CosmicBeats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('img/back.webp') no-repeat center center/cover;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar .logo span {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .navbar nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        .navbar nav ul li {
+            margin: 0 15px;
+        }
+
+        .navbar nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar nav ul li a:hover, .navbar nav ul li a.active {
+            color: #2575fc;
+        }
+
+        .auth-buttons a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background-color: #2575fc;
+            transition: background-color 0.3s;
+        }
+
+        .auth-buttons a:hover {
+            background-color: #0d47a1;
+        }
+
+        /* Login Container */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
+            padding: 20px;
+            margin-top: 80px;
+        }
+
+        /* Login Box */
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-box h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .login-box p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #cccccc;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #333;
+            color: #ffffff;
+        }
+
+        /* Password Field with Eye Icon */
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-container input {
+            padding-right: 40px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        /* Button Styling */
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2575fc;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-box button:hover {
+            background-color: #0d47a1;
+        }
+
+        .alternate-actions {
+            margin-top: 20px;
+        }
+
+        .alternate-actions a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="img/logo.webp" alt="CosmicBeats Logo">
+            <span>CosmicBeats</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index1.php">Home</a></li>
+                <li><a href="about us.html">About us</a></li>
+                <li><a href="contact us.php">Contact us</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="signup.html">Sign up</a>
+        </div>
+    </header>
+
+    <main class="login-container">
+        <div class="login-box">
+            <h1>Welcome Back!</h1>
+            <p>Log in to continue exploring your favorite music.</p>
+            <form method="POST" action="login_process.php">
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <i class="fas fa-eye toggle-password" onclick="togglePassword()"></i>
+                </div>
+                <button type="submit">Log In</button>
+            </form>
+            <div class="alternate-actions">
+                <p><a href="forgot.html">Forgot Password?</a></p>
+                <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 CosmicBeats. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById("password");
+            passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+</html>
